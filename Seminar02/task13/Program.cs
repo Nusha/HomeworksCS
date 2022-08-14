@@ -23,3 +23,4 @@ else
         n3=num%10;
         Console.WriteLine($"{input} -> {n3}");
     }
+    
