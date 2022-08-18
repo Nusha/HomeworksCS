@@ -6,8 +6,9 @@
 
 double Dist3D(int x1, int x2, int y1, int y2, int z1, int z2)
 {
-    double distance = Math.Sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1));
-    return distance;
+    // double distance
+    return  Math.Sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1));
+    // return distance;
 }
 Console.Clear();
 Console.Write($"Введите координату Х для точки А: ");
