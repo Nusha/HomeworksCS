@@ -1,8 +1,13 @@
-﻿// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях (индексах).
 
-// [345, 897, 568, 234] -> 2
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
 
-int [] CreateArrayAskElements(int size)
+
+
+
+
+int[] CreateArrayAskElements(int size)
 {
     if (size >= 4 && size <= 20)
     {
@@ -13,7 +18,7 @@ int [] CreateArrayAskElements(int size)
 
         for (int i = 0; i < size; i++)
         {
-            array[i] = new Random().Next(100, 999);
+            array[i] = new Random().Next(-99, 99);
         }
         return array;
 
@@ -42,21 +47,17 @@ void PrintArray8(int[] arr)
     }
 }
 
-object FindEven(int [] arr)
+object SummOddIndex(int [] arr)
 {
     if (arr != null)
     {
-       
-    int count=0;
-
- foreach (int item in arr)
+ int summ = 0;
+ for (int i = 1; i < arr.Length; i=i+2)
  {
-    if (item%2 ==0) count = count+1;
-
- }
-// Console.WriteLine(count);
-return count;
-    }
+    summ = summ + arr[i];
+ }  
+return summ;
+     }
 else
     {
         
@@ -73,5 +74,5 @@ Console.Write("Введите размер массива в диапазоне 
 int size = Convert.ToInt32(Console.ReadLine());
 int [] array = CreateArrayAskElements(size);
 PrintArray8(array);
-FindEven(array);
-if (array != null) Console.WriteLine($"  -> {FindEven(array)}" );
+SummOddIndex(array);
+if (array != null) Console.WriteLine($"  -> {SummOddIndex(array)}");
