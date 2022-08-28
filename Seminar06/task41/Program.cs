@@ -4,11 +4,11 @@
 // -1, -7, 567, 89, 223-> 3
 
 Console.Clear();
-Console.Write("Введите размер массива: ");
-var m = Int32.Parse(Console.ReadLine()!);
 
-int[] CreatArrFromKeyboard(int size)
+int[] CreatArrFromKeyboard()
 {
+    Console.Write("Введите размер массива: ");
+    int size = Int32.Parse(Console.ReadLine()!);
     if (size > 1)
     {
         int[] array = new int[size];
@@ -19,7 +19,27 @@ int[] CreatArrFromKeyboard(int size)
         }
         return array;
     }
-    else return null!;
+    else Console.WriteLine("Массив должен состоять как минимум из 2 элементов."); return null!;
+}
+
+int[] CreatArrFromKeyboardInString()
+{
+    Console.Write("Введите числа через пробел (также можно использовать '.' , ',' , ';' , '/' в качестве разделителей значений) в одну строку: ");
+    //int size = 0;
+    char[] sep = new char[] { ' ', ',', ';', '/', '.' };
+    int[] array = Console.ReadLine()!.Split(sep, StringSplitOptions.RemoveEmptyEntries).Select(s => int.Parse(s)).ToArray();
+    int size = array.Count();
+    if (size > 1)
+    {
+        int[] arr = new int[size];
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            arr[i] = array[i];
+        }
+        return arr;
+    }
+else Console.WriteLine("Массив должен состоять как минимум из 2 элементов."); return null!;
 }
 
 void PrintArray8(int[] arr)
@@ -50,7 +70,10 @@ int? CountAboveZero(int[] arr)
     else Console.WriteLine($"Передано недопустимое значение в метод."); return null;
 }
 
-int[] array = CreatArrFromKeyboard(m);
+Console.Write("Хотите ввести все значения массива в одну строку? Введите 'y' (Да) или любое другое значение (Нет): ");
+string input = Convert.ToString(Console.ReadLine()!);
+
+int[] array = input == "y"?CreatArrFromKeyboardInString():CreatArrFromKeyboard();  
 
 PrintArray8(array);
 
@@ -61,4 +84,3 @@ if (res.HasValue)
     Console.WriteLine($" -> {CountAboveZero(array)}");
 }
 else Console.WriteLine("Ошибка - нет значения");
-
