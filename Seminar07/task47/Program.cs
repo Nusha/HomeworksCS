@@ -8,40 +8,52 @@
 
 
 
-double [,] CreatMatrixDoubleRandom(int row, int col)
+double[,] CreatMatrixDoubleRandom(int row, int col)
 {
-    double[,] matrix = new double[row, col];
-    Random rnd = new Random();
-
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    if (row < 2 || col < 2)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            matrix[i, j] = Math.Round(rnd.Next(-9, 9) + rnd.NextDouble(), 1);
-
-        }
+        Console.WriteLine("Массив не является двумерным");
+        return null!;
     }
-    return matrix;
+    else
+    {
+        double[,] matrix = new double[row, col];
+        Random rnd = new Random();
+
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                matrix[i, j] = Math.Round(rnd.Next(-9, 9) + rnd.NextDouble(), 1);
+
+            }
+        }
+        return matrix;
+    }
 }
 
-void PrintMatrix (double [,] matrix)
+void PrintMatrix(double[,] matrix)
 {
-    Console.WriteLine();
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    if (matrix != null)
     {
-        Console.Write("[");
-       
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        Console.WriteLine();
+        for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i,j], 5}|"); 
-            else Console.Write($"{matrix[i,j], 5}");
-            
-           
+            Console.Write("[");
+
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (j < matrix.GetLength(1) - 1) Console.Write($"{matrix[i, j],5}|");
+                else Console.Write($"{matrix[i, j],5}");
+
+
+            }
+            Console.WriteLine("]");
+
         }
-        Console.WriteLine("]");
-       
+        Console.WriteLine();
     }
-    Console.WriteLine();
+    else Console.WriteLine("Не передано значение двумерного масива");
 }
 
 Console.Clear();
