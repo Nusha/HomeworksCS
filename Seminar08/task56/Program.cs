@@ -105,22 +105,22 @@ return minIndex+1;
      else Console.WriteLine("Не передано значение маcсива"); return null!;
 }
 
-void PrintArray(int[] arr)
-{
-    if (arr != null)
-    {
-        Console.Write("[");
-        for (int i = 0; i < arr.Length; i++)
-        {
-            Console.Write(i < arr.Length - 1 ? $"{arr[i],5}|" : $"{arr[i],5}");
-        }
-        Console.Write("]");
-    }
-    else
-    {
-        Console.WriteLine("Не переданы значения масcива для вывода на экран");
-    }
-}
+// void PrintArray(int[] arr)
+// {
+//     if (arr != null)
+//     {
+//         Console.Write("[");
+//         for (int i = 0; i < arr.Length; i++)
+//         {
+//             Console.Write(i < arr.Length - 1 ? $"{arr[i],5}|" : $"{arr[i],5}");
+//         }
+//         Console.Write("]");
+//     }
+//     else
+//     {
+//         Console.WriteLine("Не переданы значения масcива для вывода на экран");
+//     }
+// }
 
 
 Console.Clear();
