@@ -134,6 +134,7 @@ int? minline = FindMinLine(array);
 // PrintArray(array); //Для отладки и проверки
 Console.WriteLine();
 if (minline != null) Console.WriteLine($"{minline} строка");
+Console.WriteLine();
 
 
 
