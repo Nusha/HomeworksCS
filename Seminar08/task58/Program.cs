@@ -100,5 +100,3 @@ Console.WriteLine();
 PrintMatrix(matrixB);
 Console.WriteLine();
 PrintMatrix(matrixC);
-
-
